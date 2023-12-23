@@ -14,7 +14,7 @@ int main (){
 
     for (int i = 1; i <=m; i++)
     {
-        niz[i]=niz[n--]
+        niz[i]=niz[n--];
         
     }
     
