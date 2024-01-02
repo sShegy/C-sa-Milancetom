@@ -1,61 +1,61 @@
-#include <stdio.h>
-#include <math.h>
+#include<stdio.h>
+#include<math.h>
 
-int main()
-{
-    int n, m, k, l;
-    int mat[10][10];
-    int mat2[10][10];
-    int flag = 1;
-    printf("Unesite redove i kolone: ");
-    scanf("%d%d", &n, &m);
 
+int main(){
+    int n,m;
+    printf("Upisi broj: ");
+    scanf("%d %d",&n,&m);
+    int niz[50][50];
+    int niz1[50][50];
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < m; j++)
         {
-            scanf("%d", &mat[i][j]);
+            scanf("%d",&niz[i][j]);
         }
+        
     }
-    printf("-------------\n");
+    printf("------(ta matrica)----\n");
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < m; j++)
         {
-            printf("%d ", mat[i][j]);
+            printf("%d ",niz[i][j]);
         }
         printf("\n");
     }
-    printf("Unesite drugu matricu: ");
-    scanf("%d%d", &k, &l);
-    for (int i = 0; i < k; i++)
+    printf("----------------\n");
+    //niz1
+    int l=0;
+    for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < l; j++)
+        for (int j = 0; j < m; j++)
         {
-            scanf("%d", &mat2[i][j]);
-            if (mat[i][j] != mat2[i][j])
+            scanf("%d",&niz1[i][j]);
+            if (niz[i][j]!=niz1[i][j])
             {
-                flag = 0;
+                l=1;
             }
+            
         }
+
+        
     }
-    printf("-------------\n");
-    for (int i = 0; i < k; i++)
+    printf("------(ta matrica)----\n");
+    for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < l; j++)
+        for (int j = 0; j < m; j++)
         {
-            printf("%d ", mat2[i][j]);
+            printf("%d ",niz1[i][j]);
         }
         printf("\n");
     }
-    if (flag != 1)
+    if (l==1)
     {
-        printf("Nisu");
-    }
-    else
-    {
-        printf("Jesu");
-    }
+        printf("Matrice nisu iste");
+    }else printf("Matrice su iste");
+    
 
     return 0;
 }
