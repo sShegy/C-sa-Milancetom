@@ -1,28 +1,46 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
-int main (){
-    int n,m;
-    int niz[50];
-    printf("Unesi broj: ");
-    scanf("%d%d",&n,&m);
-    int q=n-m;
-    for (int i = 1; i <= n; i++)
-    {
-        scanf("%d",&niz[i]);
+double rek(int n,int i){
+    if(n == 1){
+        return n - i;
     }
+    return n - i / (i + n / rek(n/2,i*2));
+}
 
-    for (int i = 1; i <=m; i++)
-    {
-        niz[i]=niz[n--];
-        
+double iter(int n){
+    int temp = 0;
+    int temp_n = n;
+    while(temp_n > 1){
+        temp_n /= 2;
+        temp *= 2;
     }
-    
-    
-    for (int i = 0; i < n; i++)
-    {
-        printf("%d ", niz[i]);
-    }
+    double res = 1 - temp;
+    while(temp_n < n){
+        temp /= 2;
+        int a = n,b = n;
 
+        while(b > temp_n){
+            a = b;
+            b /= 2;
+        }
+        temp_n = a;
+        res = temp_n - temp / (temp + temp_n / res);
+    }
+    return res;
+}
+
+
+
+
+
+int main(){
+    int n;
+    scanf("%d",&n);
+    printf("REKURZIVNO : %lf \n",rek(n,1));
+    printf("ITERATIVNO : %lf \n",iter(n));
     return 0;
 }
+
+
