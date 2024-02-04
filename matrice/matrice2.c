@@ -5,6 +5,7 @@ void unesi_matricu(int n, int m, int niz[10][10])
 {
     for (int i = 0; i < n; i++)
     {
+        int a=i;
         for (int j = 0; j < m; j++)
         {
             scanf("%d", &niz[i][j]);
