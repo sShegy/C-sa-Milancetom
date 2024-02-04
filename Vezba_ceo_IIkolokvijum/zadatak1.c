@@ -1,56 +1,168 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-
-int donji(int n, int i)
+#include <string.h>
+#define SIZE 100
+int dalslovo(char c)
 {
-    if (i % 2)
+    if((c>='a' && c<='z')  (c>='A' && c<='Z'))
+        return 1;
+    else
+        return 0;
+}
+int dalsamoglasnik(char c)
+{
+    if(c=='a'  c=='e'  c=='i'  c=='o' || c=='u')
+        return 1;
+    else
+        return 0;
+}
+void uklonislova(char str[],int velicina,int samoglasnik,int pocetak)
+{
+    int k=0;
+    if(samoglasnik%2!=0)
     {
-        return pow((n - i / 2), 2);
+        for (int i = pocetak; i < velicina+pocetak+1; i++)
+        {
+            if(!dalsamoglasnik(str[i]))
+            {
+                //printf("%c\n",str[i]);
+                str[i]=' ';
+            }
+        }
     }
     else
     {
-        return pow((i / 2), 2);
+        for (int i = pocetak; i < velicina+pocetak+1; i++)
+        {
+            if(dalsamoglasnik(str[i]))
+            {
+                str[i]=' ';
+            }
+
+        }
     }
+
 }
 
-int gornji(int n, int i)
-{
-    if (i % 2)
+int main() {
+    char str[SIZE];
+    fgets(str,100,stdin);
+    int velicina=0;
+    int samoglasnik=0;
+    int niz[SIZE];
+    for (int i = 0,j=0; i < strlen(str); i++)
     {
-        return i / 2 + 1;
+        if(str[i]==' ')
+        {
+            niz[j]=i;
+            j++;
+        }
+
+    }
+   int pocetak=0;
+    for (int i = 0; i < strlen(str); i++)
+    {
+        if(dalslovo(str[i]))
+        {
+            velicina++;
+            if(dalsamoglasnik(str[i]))
+                samoglasnik++;
+        }
+        else if(velicina>0 && !dalslovo(str[i]))
+        {
+
+            uklonislova(str,velicina,samoglasnik,pocetak);
+            velicina=0;
+            pocetak=i;
+            samoglasnik=0;
+        }
+
+
+    }
+
+    fputs(str,stdout);
+    return 0;
+}
+'''#include <stdio.h>
+#include <string.h>
+#define SIZE 100
+int dalslovo(char c)
+{
+    if((c>='a' && c<='z')  (c>='A' && c<='Z'))
+        return 1;
+    else
+        return 0;
+}
+int dalsamoglasnik(char c)
+{
+    if(c=='a'  c=='e'  c=='i'  c=='o' || c=='u')
+        return 1;
+    else
+        return 0;
+}
+void uklonislova(char str[],int velicina,int samoglasnik,int pocetak)
+{
+    int k=0;
+    if(samoglasnik%2!=0)
+    {
+        for (int i = pocetak; i < velicina+pocetak+1; i++)
+        {
+            if(!dalsamoglasnik(str[i]))
+            {
+                //printf("%c\n",str[i]);
+                str[i]=' ';
+            }
+        }
     }
     else
     {
-        return n - i / 2 + 1;
+        for (int i = pocetak; i < velicina+pocetak+1; i++)
+        {
+            if(dalsamoglasnik(str[i]))
+            {
+                str[i]=' ';
+            }
+
+        }
     }
+
 }
 
-double rek(int n, int i)
-{
-    if (i == n)
+int main() {
+    char str[SIZE];
+    fgets(str,100,stdin);
+    int velicina=0;
+    int samoglasnik=0;
+    int niz[SIZE];
+    for (int i = 0,j=0; i < strlen(str); i++)
     {
-        return sqrt(gornji(n, i) * 1.0 / donji(n, i));
-    }
-    return sqrt(gornji(n, i) * 1.0 / donji(n, i) + rek(n, i + 1));
-}
+        if(str[i]==' ')
+        {
+            niz[j]=i;
+            j++;
+        }
 
-double iter(int n)
-{
-    double sum = sqrt(gornji(n, n) * 1.0 / donji(n, n));
-    for (int i = n - 1; i >= 1; i--)
+    }
+   int pocetak=0;
+    for (int i = 0; i < strlen(str); i++)
     {
-        sum = sqrt(gornji(n, i) * 1.0 / donji(n, i) + sum);
-    }
-    return sum;
-}
+        if(dalslovo(str[i]))
+        {
+            velicina++;
+            if(dalsamoglasnik(str[i]))
+                samoglasnik++;
+        }
+        else if(velicina>0 && !dalslovo(str[i]))
+        {
 
-int main()
-{
-    int n, i = 1;
-    printf("Unesi broj: ");
-    scanf("%d", &n);
-    printf("REK je: %lf\n", rek(n, i));
-    printf("ITER je: %lf\n", iter(n));
+            uklonislova(str,velicina,samoglasnik,pocetak);
+            velicina=0;
+            pocetak=i;
+            samoglasnik=0;
+        }
+
+
+    }
+
+    fputs(str,stdout);
     return 0;
 }

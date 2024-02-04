@@ -8,8 +8,9 @@ void pomeranje_u_levo(char*string,int idx){
     {
         string[i]=string[i+1];
     }
-    
+        
 }
+
 int main (){
     char string[MAX];
     fgets(string,MAX,stdin);
