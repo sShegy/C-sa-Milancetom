@@ -3,7 +3,8 @@
 #include <stdlib.h>
 #include <limits.h>
 #include <math.h>
-// 2018 G4-Z2
+
+// Function to load an n x n matrix from standard input
 void loadMatrix(int n, int matrix[n][n])
 {
     for (int i = 0; i < n; i++)
@@ -14,6 +15,8 @@ void loadMatrix(int n, int matrix[n][n])
         }
     }
 }
+
+// Function to print an n x n matrix to standard output
 void printMatrix(int n, int matrix[n][n])
 {
     for (int i = 0; i < n; i++)
@@ -25,6 +28,8 @@ void printMatrix(int n, int matrix[n][n])
         printf("\n");
     }
 }
+
+// Function to check if indices are within bounds of the matrix
 int validCheck(int i, int j, int n)
 {
     if (i >= 0 && i < n && j >= 0 && j < n)
@@ -36,56 +41,56 @@ int validCheck(int i, int j, int n)
         return 0;
     }
 }
+
+// Function to find the minimum value in the adjacent columns of the given column
 int minSusKol(int trenutnaKolona, int n, int matrix[n][n])
 {
     int min = INT_MAX;
     for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < n; j++)
+        if (validCheck(i, trenutnaKolona - 1, n))
         {
-            if (validCheck(i, trenutnaKolona - 1, n))
+            if (min > matrix[i][trenutnaKolona - 1])
             {
-                if (min > matrix[i][trenutnaKolona - 1])
-                {
-                    min = matrix[i][trenutnaKolona - 1];
-                }
+                min = matrix[i][trenutnaKolona - 1];
             }
-            if (validCheck(i, trenutnaKolona + 1, n))
+        }
+        if (validCheck(i, trenutnaKolona + 1, n))
+        {
+            if (min > matrix[i][trenutnaKolona + 1])
             {
-                if (min > matrix[i][trenutnaKolona + 1])
-                {
-                    min = matrix[i][trenutnaKolona + 1];
-                }
+                min = matrix[i][trenutnaKolona + 1];
             }
         }
     }
     return min;
 }
+
+// Function to find the maximum value in the adjacent rows of the given row
 int maxSusVrsta(int trenutnaVrsta, int n, int matrix[n][n])
 {
     int max = INT_MIN;
-    for (int i = 0; i < n; i++)
+    for (int j = 0; j < n; j++)
     {
-        for (int j = 0; j < n; j++)
+        if (validCheck(trenutnaVrsta - 1, j, n))
         {
-            if (validCheck(trenutnaVrsta - 1, j, n))
+            if (max < matrix[trenutnaVrsta - 1][j])
             {
-                if (max < matrix[trenutnaVrsta - 1][j])
-                {
-                    max = matrix[trenutnaVrsta - 1][j];
-                }
+                max = matrix[trenutnaVrsta - 1][j];
             }
-            if (validCheck(trenutnaVrsta + 1, j, n))
+        }
+        if (validCheck(trenutnaVrsta + 1, j, n))
+        {
+            if (max < matrix[trenutnaVrsta + 1][j])
             {
-                if (max < matrix[trenutnaVrsta + 1][j])
-                {
-                    max = matrix[trenutnaVrsta + 1][j];
-                }
+                max = matrix[trenutnaVrsta + 1][j];
             }
         }
     }
     return max;
 }
+
+// Function to process the input matrix and store the result in the output matrix
 void doStuff(int n, int input[n][n], int output[n][n])
 {
     for (int i = 0; i < n; i++)
@@ -102,11 +107,11 @@ void doStuff(int n, int input[n][n], int output[n][n])
 int main()
 {
     int n;
-    scanf("%d", &n);
+    scanf("%d", &n); // Read the size of the matrix
     int matrica[n][n];
     int matricaB[n][n];
-    loadMatrix(n, matrica);
-    doStuff(n, matrica, matricaB);
-    printMatrix(n, matricaB);
+    loadMatrix(n, matrica); // Load the matrix
+    doStuff(n, matrica, matricaB); // Process the matrix
+    printMatrix(n, matricaB); // Print the resulting matrix
     return 0;
 }
