@@ -106,7 +106,6 @@ void najbolja_dijeta(Osoba *root, char dijeta[], char naziv_max_dijete[], int *s
         *suma_kg = root->kg;
         *br_dijeta = 1;
     }
-
     najbolja_dijeta(root->right, dijeta, naziv_max_dijete, suma_kg, br_dijeta, max_efikasnost);
 }
 Osoba *izbrisi(Osoba *root)
