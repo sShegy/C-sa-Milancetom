@@ -109,11 +109,14 @@ void najbolja_dijeta(Osoba *root, char dijeta[], char naziv_max_dijete[], int *s
 
     najbolja_dijeta(root->right, dijeta, naziv_max_dijete, suma_kg, br_dijeta, max_efikasnost);
 }
-Osoba* izbrisi(Osoba*root){
-    if (root==NULL)
+Osoba *izbrisi(Osoba *root)
+{
+    if (root == NULL)
     {
         return NULL;
-    }else{
+    }
+    else
+    {
         izbrisi(root->left);
         izbrisi(root->right);
         free(root);
@@ -193,7 +196,7 @@ int main()
             ispisi_osobe_sa_imenom(root, ime);
             break;
         case 5:
-            root= izbrisi(root);
+            root = izbrisi(root);
             break;
         default:
             printf("Wrong command!!!\n");
