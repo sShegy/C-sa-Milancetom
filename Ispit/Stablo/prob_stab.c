@@ -7,6 +7,7 @@ typedef struct Element
     struct Element *right;
     struct Element *left;
 } Element;
+
 Element *novi_element(int data)
 {
     Element *novi = malloc(sizeof(Element));
@@ -15,6 +16,7 @@ Element *novi_element(int data)
     novi->right = NULL;
     return novi;
 }
+
 void ispisi_stablo_preorder(Element *root)
 {
 
@@ -23,6 +25,7 @@ void ispisi_stablo_preorder(Element *root)
     ispisi_stablo_preorder(root->right);
     return;
 }
+
 void ispisi_stablo_inorder(Element *root)
 {
 
@@ -31,6 +34,7 @@ void ispisi_stablo_inorder(Element *root)
     ispisi_stablo_preorder(root->right);
     return;
 }
+
 void ispisi_stablo_postorder(Element *root)
 {
 
@@ -39,6 +43,7 @@ void ispisi_stablo_postorder(Element *root)
     printf("%d ", root->data);
     return;
 }
+
 Element *obrisi_celo_stablo(Element *root)
 {
     while (root != NULL)
@@ -49,6 +54,7 @@ Element *obrisi_celo_stablo(Element *root)
     }
     return NULL;
 }
+
 Element *dodaj_element_iterativno(Element *root, Element *novi)
 {
     if (root == NULL)
@@ -84,6 +90,7 @@ Element *dodaj_element_iterativno(Element *root, Element *novi)
         }
     }
 }
+
 Element *dodaj_element_rekurzivno(Element *root, Element *novi)
 {
     if (root == NULL)
@@ -100,6 +107,7 @@ Element *dodaj_element_rekurzivno(Element *root, Element *novi)
     }
     return root;
 }
+
 Element *pronadji_element_iterativno(Element *root, int data)
 {
     if (root == NULL)
@@ -124,6 +132,7 @@ Element *pronadji_element_iterativno(Element *root, int data)
     }
     return NULL;
 }
+
 Element *pronadji_element_rekurzivno(Element *root, int data)
 {
     if (root == NULL || root->data == data)
@@ -142,6 +151,7 @@ Element *pronadji_element_rekurzivno(Element *root, int data)
 
     return NULL;
 }
+
 Element *najveci_element(Element *root)
 {
     if (root == NULL)
@@ -154,6 +164,7 @@ Element *najveci_element(Element *root)
     }
     return root;
 }
+
 Element *najmanji_element(Element *root)
 {
     if (root == NULL)
@@ -166,6 +177,7 @@ Element *najmanji_element(Element *root)
     }
     return root;
 }
+
 int dubina_stabla(Element *root)
 {
     if (root == NULL)
@@ -175,7 +187,6 @@ int dubina_stabla(Element *root)
 
     int left_depth = dubina_stabla(root->left);
     int right_depth = dubina_stabla(root->right);
-
     if (left_depth > right_depth)
     {
         return left_depth + 1;

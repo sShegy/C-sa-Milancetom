@@ -36,6 +36,7 @@ Element *dodaj_na_pocetak(Element *head, Element *novi)
     novi->next = head;
     return novi;
 }
+
 void ispisi(Element *head)
 {
     printf("-----------\n");
@@ -152,6 +153,7 @@ Element *brisi_sa_pocetka(Element *head)
     free(tmp);
     return head;
 }
+
 Element *brisi_sa_kraja(Element *head)
 {
     if (head == NULL)
