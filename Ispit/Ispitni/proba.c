@@ -136,6 +136,7 @@ void podatak(Osoba *root, char imen[])
     podatak(root->left, imen);
     podatak(root->right, imen);
 }
+
 int main()
 {
     Osoba *root = NULL;
