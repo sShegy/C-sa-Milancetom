@@ -1,0 +1,14 @@
+Forrest Gump,1994,88,Drama
+12 Angry Men,1957,90,Crime
+Schindler's List,1993,90,Biography
+The Lord of the Rings: The Return of the King,2003,90,Adventure
+The Lord of the Rings: The Two Towers,2002,88,Adventure
+The Shawshank Redemption,1994,93,Drama
+Pulp Fiction,1994,89,Crime
+The Godfather,1972,92,Crime
+It's a Wonderful Life,1946,86,Fantasy
+The Matrix,1999,87,Action
+Goodfellas,1992,87,Biography
+One Flew Over the Cuckoo's Nest,1975,87,Drama
+Star Wars: Episode IV - A New Hope,1977,86,Fantasy
+The Dark Knight,2008,90,Action
