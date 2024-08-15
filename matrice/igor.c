@@ -29,7 +29,6 @@ int main()
                                 daLiSuParni = 0;
                         }
                     }
-
                     if (daLiSuParni == 1)
                     {
                         for (int x = i; x <= k; x++)
