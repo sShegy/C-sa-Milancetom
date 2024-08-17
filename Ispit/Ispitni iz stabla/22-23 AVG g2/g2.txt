@@ -1,0 +1,13 @@
+Bioinformatics,Uppsala,27624
+Computer Science,KTH,30000
+Medical Biotechnology,KTH,28230
+Health Informatics,Stockholm,30316
+Computer Science,Uppsala,27626
+Bioinformatics,Lund,26356
+Computational Science,Amsterdam,28020
+Machine Learning,Stockholm,28230
+Computer Science,Amsterdan,23000
+Applied Mathematics,KTH,28230
+Software Engineering,Amsterdam,30000
+Computer Science,Lund,26370
+Wireless Communications,Lund,26356

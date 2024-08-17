@@ -183,7 +183,7 @@ int main()
             break;
         case 5:
             printf("---------------------------------\n");
-            root= izbrisi(root);
+            root = izbrisi(root);
             printf("---------------------------------\n");
             break;
         default:
