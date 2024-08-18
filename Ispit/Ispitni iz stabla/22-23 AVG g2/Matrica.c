@@ -66,9 +66,9 @@ void uradi(int mat[N][N], int mat2[N][N], int n, int m)
     // Element u novoj matrici jednak je apsolutnoj vrednosti razlike
     // minimalnog elementa iz susednih kolona i maksimalnog elementa
     // iz susednih vrsta odgovarajućeg elementa iz ulazne matrice.
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < m; i++)
     {
-        for (int j = 0; j < m; j++)
+        for (int j = 0; j < n; j++)
         {
             int min_col = min_kolona(mat, n, m, i, j);
             int max_row = max_vrsta(mat, n, m, i, j);
@@ -98,9 +98,9 @@ int main()
     uradi(mat, mat2, n, m);
 
     printf("Nova matrica:\n");
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < m; i++)
     {
-        for (int j = 0; j < m; j++)
+        for (int j = 0; j < n; j++)
         {
             printf("%d ", mat2[i][j]);
         }

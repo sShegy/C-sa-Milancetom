@@ -15,8 +15,6 @@
 // osobama čije ime sadrži uneti string. Pretraga treba da bude neosetljiva na mala i velika slova.
 // e) (1p) Izlaz iz programa i brisanje stabla
 
-
-
 typedef struct Osoba
 {
     char ime[20];

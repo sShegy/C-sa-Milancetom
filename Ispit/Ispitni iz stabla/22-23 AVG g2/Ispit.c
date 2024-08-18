@@ -117,22 +117,11 @@ void ispis_programa(Osoba *root, char pr[20])
     {
         printf("Srednja vrednost cene: %.2f\n", (float)totalCena / count);
     }
-    
-    
-    
 }
 
-void oslobodi_memoriju(Osoba *root)
+Osoba *izbrisi(Osoba *root)
 {
     if (root != NULL)
-    {
-        oslobodi_memoriju(root->left);
-        oslobodi_memoriju(root->right);
-        free(root);
-    }
-}
-Osoba* izbrisi(Osoba*root){
-    if (root!=NULL)
     {
         izbrisi(root->left);
         izbrisi(root->right);
@@ -211,7 +200,7 @@ int main()
             break;
         case 5:
             printf("---------------------------------------------------------------------------\n");
-            root=izbrisi(root);
+            root = izbrisi(root);
             printf("\n---------------------------------------------------------------------------\n");
             break;
         default:
