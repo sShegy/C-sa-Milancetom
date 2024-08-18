@@ -16,36 +16,50 @@
  *
  */
 
-int jeProst(int broj) {
-    for(int i = 2; i<broj; i++) {
-        if(broj%i == 0) {
+int jeProst(int broj)
+{
+    for (int i = 2; i < broj; i++)
+    {
+        if (broj % i == 0)
+        {
             return 0;
         }
     }
     return 1;
 }
 
-int podmatrice(int mat[50][50], int n, int smallest, int biggest) {
+int podmatrice(int mat[50][50], int n, int smallest, int biggest)
+{
     int smallestDimension = INT_MAX;
     int smallestX = 0;
     int smallestY = 0;
     int smallestI = 0;
     int smallestJ = 0;
-    for(int x = 1; x <= n; x++) {
-        for(int y = 1; y <= n; y++) {
-            for(int i = 0; i <= n - x; i++) {
-                for(int j = 0; j <= n - y; j++) {
+    
+    for (int x = 1; x <= n; x++)
+    {
+        for (int y = 1; y <= n; y++)
+        {
+            for (int i = 0; i <= n - x; i++)
+            {
+                for (int j = 0; j <= n - y; j++)
+                {
                     int flag = 0;
-                    for(int p = i; p < i + x; p++) {
-                        for(int q = j; q < j + y; q++) {
-                            if(mat[p][q] == smallest || mat[p][q] == biggest) {
+                    for (int p = i; p < i + x; p++)
+                    {
+                        for (int q = j; q < j + y; q++)
+                        {
+                            if (mat[p][q] == smallest || mat[p][q] == biggest)
+                            {
                                 flag++;
                             }
                         }
                     }
-                    if(flag == 2) {
-                        if(x*y<smallestDimension) {
-                            smallestDimension = x*y;
+                    if (flag == 2)
+                    {
+                        if (x * y < smallestDimension)
+                        {
+                            smallestDimension = x * y;
                             smallestX = x;
                             smallestY = y;
                             smallestI = i;
@@ -57,8 +71,10 @@ int podmatrice(int mat[50][50], int n, int smallest, int biggest) {
         }
     }
 
-    for(int p = smallestI; p < smallestI + smallestX; p++) {
-        for(int q = smallestJ; q < smallestJ + smallestY; q++) {
+    for (int p = smallestI; p < smallestI + smallestX; p++)
+    {
+        for (int q = smallestJ; q < smallestJ + smallestY; q++)
+        {
             printf("%d ", mat[p][q]);
         }
         printf("\n");
@@ -67,8 +83,8 @@ int podmatrice(int mat[50][50], int n, int smallest, int biggest) {
     return 0;
 }
 
-
-int main(void) {
+int main(void)
+{
 
     int najveci = 0;
     int najmanji = INT_MAX;
@@ -79,20 +95,28 @@ int main(void) {
 
     int mat[50][50];
 
-    printf("Unesi matricu: ");
+    printf("Unesi matricu: \n");
 
-    for(int i = 0; i<n; i++) {
-        for(int j = 0; j<n; j++) {
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
             scanf("%d", &mat[i][j]);
         }
     }
 
-    for(int i = 0; i<n; i++) {
-        for(int j = 0; j<n; j++) {
-            if(jeProst(mat[i][j]) == 1) {
-                if(mat[i][j] > najveci) {
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (jeProst(mat[i][j]) == 1)
+            {
+                if (mat[i][j] > najveci)
+                {
                     najveci = mat[i][j];
-                }else if((mat[i][j] < najmanji) && mat[i][j] != 1) {
+                }
+                else if ((mat[i][j] < najmanji) && mat[i][j] != 1)
+                {
                     najmanji = mat[i][j];
                 }
             }
@@ -101,8 +125,5 @@ int main(void) {
 
     podmatrice(mat, n, najmanji, najveci);
 
-    //printf("najmanji = %d, najveci = %d\n", najmanji, najveci);
-
+    // printf("najmanji = %d, najveci = %d\n", najmanji, najveci);
 }
-
- 
