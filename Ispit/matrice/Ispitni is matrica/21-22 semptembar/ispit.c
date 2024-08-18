@@ -1,17 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <limits.h>
 #include <math.h>
 #define N 99
-
-/*
-8     7     2     6     3     9
-3     9     5     8     4     1
-4     7     2     9     5     3
-12   9     4     10   7    15
-8     6     3     10   4     5
-11   6     8     10   5     3
-*/
 
 int jeProst(int broj)
 {
@@ -32,7 +22,6 @@ int jeProst(int broj)
 
 void podmatrica(int mat[N][N], int n)
 {
-    int tr = 0;
     for (int x = 1; x <= n; x++)
     {
         for (int y = 1; y <= n; y++)
@@ -41,18 +30,24 @@ void podmatrica(int mat[N][N], int n)
             {
                 for (int j = 0; j <= n - y; j++)
                 {
+                    int tr = 0; // Reset the count for each submatrix
+
+                    // Count non-prime numbers in the current submatrix
                     for (int p = i; p < i + x; p++)
                     {
                         for (int q = j; q < j + y; q++)
                         {
-                            if (jeProst(mat[p][q])==0)
+                            if (jeProst(mat[p][q]) == 0)
                             {
                                 tr++;
                             }
                         }
                     }
+
+                    // If more than 3 non-prime numbers, print the submatrix
                     if (tr > 3)
                     {
+                        printf("Submatrica (%d x %d) starting at (%d, %d):\n", x, y, i, j);
                         for (int e = i; e < i + x; e++)
                         {
                             for (int o = j; o < j + y; o++)
@@ -61,6 +56,7 @@ void podmatrica(int mat[N][N], int n)
                             }
                             printf("\n");
                         }
+                        printf("\n");
                     }
                 }
             }

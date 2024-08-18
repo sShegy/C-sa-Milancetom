@@ -10,10 +10,6 @@
         4 10 3 9 12 8 7
         9 6 5 11 4 8 10
         3 6 8 16 5 4 11
- *
- *
- *
- *
  */
 
 int jeProst(int broj)
@@ -35,7 +31,7 @@ int podmatrice(int mat[50][50], int n, int smallest, int biggest)
     int smallestY = 0;
     int smallestI = 0;
     int smallestJ = 0;
-    
+
     for (int x = 1; x <= n; x++)
     {
         for (int y = 1; y <= n; y++)

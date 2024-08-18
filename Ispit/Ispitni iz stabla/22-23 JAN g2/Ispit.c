@@ -58,7 +58,7 @@ void najbolji(Osoba *root, Osoba **tmp, int *max)
     if (root != NULL)
     {
         najbolji(root->right, tmp, max);
-        if (root->br < *max)
+        if (root->br > *max)
         {
             *max = root->br;
             *tmp = root;
