@@ -176,11 +176,53 @@ int main()
             break;
         }
         case 4:
-            taj = 999;
+        {
+            int velicina = 0;
+            int capacity = 10;
+            Osoba **lista = malloc(capacity * sizeof(Osoba *));
+
+            void prikupi_filmove(Osoba * root)
+            {
+                if (root != NULL)
+                {
+                    prikupi_filmove(root->left);
+                    if (velicina >= capacity)
+                    {
+                        capacity *= 2;
+                        lista = realloc(lista, capacity * sizeof(Osoba *));
+                    }
+                    lista[velicina++] = root;
+                    prikupi_filmove(root->right);
+                }
+            }
+
+            prikupi_filmove(root);
+
+            for (int i = 0; i < velicina - 1; i++)
+            {
+                for (int j = 0; j < velicina - i - 1; j++)
+                {
+                    if (lista[j]->ocena < lista[j + 1]->ocena)
+                    {
+                        // Zamena mesta filmova
+                        Osoba *temp = lista[j];
+                        lista[j] = lista[j + 1];
+                        lista[j + 1] = temp;
+                    }
+                }
+            }
+
             printf("---------------------------------\n");
-            ispisi_opadajuce(root, taj);
+            for (int i = 0; i < velicina; i++)
+            {
+                printf("Film: %s, Godina: %d, Ocena: %d, Zanr: %s\n", lista[i]->ime, lista[i]->godina, lista[i]->ocena, lista[i]->zanr);
+            }
             printf("---------------------------------\n");
+
+            free(lista);
             break;
+        }
+
         case 5:
             printf("---------------------------------\n");
             root = izbrisi(root);

@@ -56,7 +56,7 @@ Element *obrisi_celo_stablo(Element *root)
     else
     {
         obrisi_celo_stablo(root->left);
-        obrisi_celo_stablo(root->right);6
+        obrisi_celo_stablo(root->right);
         free(root);
     }
     return NULL;
